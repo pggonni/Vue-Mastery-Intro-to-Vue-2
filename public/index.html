@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Mastery | Product App</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="flex p-16">
+            <div class="w-96 bg-gray-200 mr-8 overflow-hidden rounded-xl shadow-md">
+                <img :src="image">
+            </div>
+            <div class="product-info">
+                <div class="flex items-center">
+                    <h1 class="text-4xl font-bold mb-2">{{ product }}</h1>
+                    <p 
+                        class="border border-blue-800 bg-blue-100 rounded-lg py-1 px-2 ml-4"
+                        v-if="onSale"
+                    >On Sale!</p>
+                </div>
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+                <p v-else>Out of Stock</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
